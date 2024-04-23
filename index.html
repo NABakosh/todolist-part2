@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>To-Do List</title>
+</head>
+<body>
+    <div class="container">
+        <div class="todolist">
+            <h2>To-Do List <img src="img/todolist.png"></h2>
+            <div class="fortype">
+            <input type="text" id="addTask" placeholder="Введите текст">
+            <button onclick="newList()">Добавить</button>
+            </div>
+            <h5 id="alert"></h5>
+            <ul id="addList">
+                <!--li class="checked">Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li-->
+            </ul>
+        </div>
+    </div>
+    <script src="java.js"></script>
+</body>
+</html>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        box-sizing: border-box;
+        font-family: 'Poppins',sans-serif;
+    }
+    .container{
+        padding:10px;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(780deg ,rgb(137, 59, 173),#6dd377);
+    }
+    .todolist{
+        margin: 100px auto 20px;
+        padding:24px;
+        width: 100%;
+        max-width: 540px;
+        background: white;
+        border-radius: 15px;
+    }
+    .todolist h2 img{
+        margin: 0px 0px 0px 7px;
+        width:30px;
+    }
+    .fortype{
+        padding-left: 20px;
+        margin: 24px 0px 24px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 20px;
+        background: #dbdbdb;
+    }
+    input{
+        padding: 13.5px;
+        flex:1;
+        font-size: 15px;
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+    button{
+        padding:13.5px 50px;
+        border: none;
+        outline: none;
+        background-color: #5DAD65;
+        border-radius: 20px;
+        cursor: pointer;
+        color:white;
+}
+    h5{
+        color:rgb(255, 0, 0);
+        margin: -5px 0px 15px 17px;
+    }
+
+    ul li{
+        list-style: none;
+        font-size: 17px;
+        padding:12px 8px 12px 50px;
+        user-select:none;
+        cursor: pointer;
+        position: relative;
+    }
+    ul li::before{
+        content: '';
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        border-radius: 50%;
+        background-image: url(img/unchecked.png);
+        background-size: cover;
+        background-position: center;
+        top:7px;
+        left: 8px;
+    }
+    ul li.checked{
+        color:#555;
+        text-decoration: line-through;
+    }
+    ul li.checked::before{
+        background-image: url(img/checked.png);
+    }
+    ul li span{
+        position: absolute;
+        right:0;
+        top:5px;
+        width: 40px;
+        height: 40px;
+        font-size:22px;
+        color:#555;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 50%;
+    }
+    ul li span:hover{
+        background:  #edeef0;
+    }
+</style>
