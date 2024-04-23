@@ -1,7 +1,7 @@
 const addTask = document.getElementById('addTask');
 const addList = document.getElementById('addList');
-const alertMessage = document.getElementById('alert')
-function newList(){
+const alertMessage = document.getElementById('alert');
+function newList(e){
     alertMessage.innerHTML = '';
     if(addTask.value === ''){
         let h5 = document.createElement('h5');
@@ -16,7 +16,9 @@ function newList(){
         span.innerHTML = "\u00d7";
         li.appendChild(span)
     }
+    addTask.value = ''
 }
+
 addList.addEventListener('click', function(event){
     if(event.target.tagName === 'LI'){
         event.target.classList.toggle('checked');
@@ -25,3 +27,8 @@ addList.addEventListener('click', function(event){
         event.target.parentElement.remove();
     }
 }, false)
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        newList()
+    }
+});
